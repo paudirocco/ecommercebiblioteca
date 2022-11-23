@@ -1,0 +1,43 @@
+@use '../CartWidget/CartWidget.scss';
+
+.navBar {
+    height: auto;
+    background-color: hsla(52, 82%, 70%);
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .logo {
+        a {
+            img {
+                width: 140px;
+            }
+        }
+    }
+
+    .cartWidgetImg{
+        margin-left: 30px;
+    }
+}
+
+.menu {
+    font-size: 20px;
+    font-weight: 10px;
+    text-shadow: 0.5px 0.5px 0.5px hsla(52, 70%, 21%, 0.792);
+    margin: 10px;
+
+    a {
+        color: hsla(52, 90%, 16%, 0.903);
+        text-decoration: none;
+        padding: 5px;
+    }
+    
+    a:hover {
+        color: hsla(52, 91%, 8%, 0.903);
+    }
+}
+
