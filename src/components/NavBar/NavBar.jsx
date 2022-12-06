@@ -1,4 +1,5 @@
 import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget';
 import Logo from './logo.png';
 
@@ -7,9 +8,9 @@ const NavBar = ({menus}) => {
         <div className="navBar">
             <div>
                 <div className="logo">
-                    <a href="#">
+                    <Link to="/">
                         <img src={Logo} alt="logo" />
-                    </a>
+                    </Link>
                 </div>
                 <div className='cartWidgetImg'>
                     <CartWidget />
@@ -18,7 +19,7 @@ const NavBar = ({menus}) => {
             <div className="menu">
                 {
                 menus.map((menu)=> {
-                    return <a href="#">{menu}</a>
+                    return <Link to={`/category/${menu}`} key={menu} >{menu}</Link>
                 })
                 }
             </div>
