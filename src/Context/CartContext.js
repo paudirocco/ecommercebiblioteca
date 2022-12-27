@@ -93,9 +93,9 @@ export const CartContextProvider = ({children}) => {
         <CartContext.Provider value={{ 
             cartList: state.cartList, 
             count: state.count,
+            isInCart,
             addToCart, 
             clear,
-            isInCart,
             removeItem}}>
             {children}
         </CartContext.Provider>
