@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../Context/CartContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
 
 const CartFinish = () => {
@@ -10,7 +10,7 @@ const CartFinish = () => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     let costoTotal = 0;
-
+    const navegar = useNavigate()
     const addMonto = (num) => {
         costoTotal = costoTotal + num;
     };
@@ -23,8 +23,9 @@ const CartFinish = () => {
         clear();
     };
 
-    const sendOrder = () => {
-        const order = {
+    const sendOrder = (e) => {
+        e.preventDefault()
+        let order = {
             items: cartList,
             total: costoTotal,
             buyer: { name: fName, phone: phone, email: email }
@@ -32,17 +33,16 @@ const CartFinish = () => {
 
         const db = getFirestore();
         const ordersCollection = collection(db, "orders");
-        addDoc(ordersCollection,order).then(({id}) => {
-        alert(`Orden con id: ${id}`);
-        clear();
-        setfName("")
-        setPhone("")
-        setEmail("")
+        addDoc(ordersCollection,order).then((res) => {
+        alert(`Orden con id: ${res.id}`);
+        console.log(res.id)
+        clear()
+        navegar('/')
         })
     }
 
     return (
-        <form>
+        <form onSubmit={sendOrder}>
 
             <div>
                 <label>Nombre Completo</label>
@@ -54,6 +54,8 @@ const CartFinish = () => {
                 <label>Correo electrónico</label>
                 <input type="text" placeholder="email"
                     value={email} onChange={e => setEmail(e.target.value)} />
+                <label>Correo electrónico</label>
+                <input type="text" placeholder="Vuelva a ingresar su email" />
                 </div>
             
             <div className="form-group space">
@@ -82,13 +84,15 @@ const CartFinish = () => {
                     </tbody>
                 </table>
                 <button className="space" disabled={count === 0} onClick={() => { onClear() }}>Vaciar carrito</button>
-                <button className="space" disabled={count === 0} onClick={() => { sendOrder() }}>Confirmar Compra</button>
+                <button className="space" disabled={count === 0}  type='submit'>Realizar Compra</button>
 
                 </div>
             </form>
 
     )
 }
+
+export default CartFinish
 
 
 
@@ -141,4 +145,4 @@ const CartFinish = () => {
 
 
 
-export default CartFinish
+// export default CartFinish

@@ -1,0 +1,72 @@
+.boton__carrito {
+  background-color: hsla(52deg, 82%, 70%, 0.8);
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+.boton__carrito img {
+  width: 25px;
+}
+.boton__carrito .cant__items {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  width: 15px;
+  height: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 100%;
+  position: absolute;
+  padding: 1px 0 0 0;
+  transform: translate(-7px, -6px);
+}
+
+.navBar {
+  height: auto;
+  background-color: hsl(52deg, 82%, 70%);
+  display: flex;
+  justify-content: space-between;
+}
+.navBar div {
+  display: flex;
+  justify-content: center;
+}
+.navBar .logo a img {
+  width: 140px;
+}
+.navBar .cartWidgetImg {
+  margin-left: 30px;
+}
+
+.menu {
+  font-size: 20px;
+  font-weight: 10px;
+  text-shadow: 0.5px 0.5px 0.5px hsla(52deg, 70%, 21%, 0.792);
+  margin: 10px;
+}
+.menu a {
+  color: hsla(52deg, 90%, 16%, 0.903);
+  text-decoration: none;
+  padding: 5px;
+}
+.menu a:hover {
+  color: hsla(52deg, 91%, 8%, 0.903);
+}
+
+.tituloListaProductos {
+  font-size: 16px;
+  text-align: center;
+  color: red;
+}
+
+.cargando {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.listaProductos {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+}/*# sourceMappingURL=Home.css.map */
