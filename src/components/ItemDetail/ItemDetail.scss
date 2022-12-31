@@ -1,4 +1,13 @@
 .containerDetail{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    
+    .detail{
+        margin-top: 50px;
+
+        .tituloProd{
+            font-size: 30px;
+        }
+    }
 }

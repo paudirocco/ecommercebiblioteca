@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { getFetch } from '../../Productos'
 import ItemDetail from '../ItemDetail'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemDetailContainer = () => {
     const [itemDetail, setItemDetail] = useState ({})
@@ -18,7 +19,7 @@ const ItemDetailContainer = () => {
 
     return (
     <div>
-        { loading ? <h2 className='loading'>Cargando...</h2>
+        { loading ? <CircularProgress className='cargando' />
         : <ItemDetail product={itemDetail} />}
     </div>
     )

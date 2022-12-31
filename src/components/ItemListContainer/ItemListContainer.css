@@ -1,17 +1,21 @@
-.tituloListaProductos {
-  font-size: 16px;
+.cargando {
+  margin-top: 45px;
+  margin-left: 100px;
+}
+
+.containerProd {
+  margin-bottom: 80px;
+}
+.containerProd .tituloListaProductos {
+  font-size: 24px;
   text-align: center;
   color: red;
 }
-
-.cargando {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.listaProductos {
+.containerProd .listaProductos {
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-around;
+  margin: 5px;
+  text-align: center;
 }/*# sourceMappingURL=ItemListContainer.css.map */

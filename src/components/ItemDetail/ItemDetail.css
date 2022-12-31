@@ -1,4 +1,11 @@
 .containerDetail {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+.containerDetail .detail {
+  margin-top: 50px;
+}
+.containerDetail .detail .tituloProd {
+  font-size: 30px;
 }/*# sourceMappingURL=ItemDetail.css.map */

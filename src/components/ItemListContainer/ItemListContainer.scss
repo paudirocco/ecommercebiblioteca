@@ -1,15 +1,22 @@
-.tituloListaProductos {
-    font-size: 16px;
-    text-align: center;
-    color: red;
-}
 .cargando{
-    margin-top: 15px;
-    text-align: center;
+    margin-top: 45px;
+    margin-left: 100px;
 }
-.listaProductos{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
+.containerProd{
+    margin-bottom: 80px;
+
+    .tituloListaProductos {
+        font-size: 24px;
+        text-align: center;
+        color: red;
+    }
+
+    .listaProductos{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-around;
+        margin: 5px;
+        text-align: center;
+    }
 }

@@ -1,13 +1,16 @@
-.boton__carrito {
+.carrito {
+  align-items: center;
+}
+.carrito .botonCarrito {
   background-color: hsla(52deg, 82%, 70%, 0.8);
   border: none;
   cursor: pointer;
   margin: 0 1rem;
 }
-.boton__carrito img {
+.carrito .botonCarrito img {
   width: 25px;
 }
-.boton__carrito .cant__items {
+.carrito .botonCarrito .cantItems {
   cursor: pointer;
   background-color: red;
   color: white;

@@ -3,20 +3,12 @@ import {useEffect, useState} from 'react'
 import {collection, getDocs, getFirestore} from "firebase/firestore"
 import ItemList from '../ItemList'
 import { useParams } from 'react-router-dom'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState ([])
     const [loading, setLoading] = useState (true)
     const {id} = useParams()
-
-    // useEffect (()=> {
-    //     const db = getFirestore();
-    //     const itemCollection = collection(db,"item")
-    //     getDocs(itemCollection).then((result)=>{
-    //         setProductos(result.docs.map((doc)=>({
-    //             id:doc.id,...doc.data()})))
-    //     })
-    // },[])
 
     useEffect (()=> {
         if(id){
@@ -60,9 +52,9 @@ const ItemListContainer = () => {
             {
                 loading
                 ?
-                <h1 className='cargando'>Cargando...</h1>
+                <CircularProgress className='cargando' />
                 :
-                <div>
+                <div className='containerProd'>
                     <h1 className='tituloListaProductos'>Lista de productos</h1>
                     <div className='listaProductos'>
                         <ItemList Prod = {productos} />

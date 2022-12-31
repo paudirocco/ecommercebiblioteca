@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import './ItemCount.scss'
 
 const ItemCount = ({stock, initial, onAdd}) => {
   const [count, setCount] = useState(initial)
@@ -20,7 +21,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
   }
 
   return (
-    <div>
+    <div className='itemCountContainer'>
     <div className='containerButton'>
       <button className='botonSumaResta' onClick={restar}  disabled={count === 0}> - </button>
       <label>{count}</label>

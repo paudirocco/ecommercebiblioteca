@@ -3,12 +3,14 @@ import { useContext, useState } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link, useNavigate } from 'react-router-dom'
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
+import {serverTimestamp } from 'firebase/firestore'
 
 const CartFinish = () => {
     const {cartList, count, removeItem, clear} = useContext(CartContext);
     const [fName, setfName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const [secondEmail, setSecondEmail] = useState('');
     let costoTotal = 0;
     const navegar = useNavigate()
     const addMonto = (num) => {
@@ -25,20 +27,26 @@ const CartFinish = () => {
 
     const sendOrder = (e) => {
         e.preventDefault()
-        let order = {
-            items: cartList,
-            total: costoTotal,
-            buyer: { name: fName, phone: phone, email: email }
-        }
+        if (email !== '' && secondEmail !== '' && email === secondEmail){
+            let order = {
+                items: cartList,
+                total: costoTotal,
+                fecha: serverTimestamp(),
+                state: 'Generada',
+                buyer: { name: fName, phone: phone, email: email }
+            }
 
-        const db = getFirestore();
-        const ordersCollection = collection(db, "orders");
-        addDoc(ordersCollection,order).then((res) => {
-        alert(`Orden con id: ${res.id}`);
-        console.log(res.id)
-        clear()
-        navegar('/')
-        })
+            const db = getFirestore();
+            const ordersCollection = collection(db, "orders");
+            addDoc(ordersCollection,order).then((res) => {
+            alert(`Orden con id: ${res.id}`);
+            console.log(res.id)
+            clear()
+            navegar('/')
+            })
+        }else{
+            alert('Por favor verifique los datos ingresados')
+        }
     }
 
     return (
@@ -55,7 +63,8 @@ const CartFinish = () => {
                 <input type="text" placeholder="email"
                     value={email} onChange={e => setEmail(e.target.value)} />
                 <label>Correo electrónico</label>
-                <input type="text" placeholder="Vuelva a ingresar su email" />
+                <input type="text" placeholder="Vuelva a ingresar su email"
+                    value={secondEmail} onChange={e => setSecondEmail(e.target.value)} />
                 </div>
             
             <div className="form-group space">
@@ -84,7 +93,7 @@ const CartFinish = () => {
                     </tbody>
                 </table>
                 <button className="space" disabled={count === 0} onClick={() => { onClear() }}>Vaciar carrito</button>
-                <button className="space" disabled={count === 0}  type='submit'>Realizar Compra</button>
+                <button className="space" disabled={count === 0 && email === '' && secondEmail === '' }  type='submit'>Realizar Compra</button>
 
                 </div>
             </form>

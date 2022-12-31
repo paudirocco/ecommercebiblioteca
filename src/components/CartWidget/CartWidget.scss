@@ -1,22 +1,26 @@
-.boton__carrito {
-    background-color: hsla(52, 82%, 70%, 0.8);
-    border: none;
-    cursor: pointer;
-    margin: 0 1rem;
-    img {
-        width: 25px;
-    }
-    .cant__items {
+.carrito{
+    align-items: center;
+
+    .botonCarrito {
+        background-color: hsla(52, 82%, 70%, 0.8);
+        border: none;
         cursor: pointer;
-        background-color: red;
-        color: white;
-        width: 15px;
-        height: 15px;
-        font-size: .7rem;
-        font-weight: 700;
-        border-radius: 100%;
-        position: absolute;
-        padding: 1px 0 0 0;
-        transform: translate(-7px, -6px);
+        margin: 0 1rem;
+        img {
+            width: 25px;
+        }
+        .cantItems {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            width: 15px;
+            height: 15px;
+            font-size: .7rem;
+            font-weight: 700;
+            border-radius: 100%;
+            position: absolute;
+            padding: 1px 0 0 0;
+            transform: translate(-7px, -6px);
+        }
     }
 }

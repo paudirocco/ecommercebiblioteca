@@ -1,1 +1,10 @@
-/*# sourceMappingURL=ItemCount.css.map */
+.itemCountContainer {
+  margin-top: 30px;
+}
+.itemCountContainer .botonSumaResta {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.itemCountContainer .agregar {
+  margin-top: 24px;
+}/*# sourceMappingURL=ItemCount.css.map */
